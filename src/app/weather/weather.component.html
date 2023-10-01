@@ -1,7 +1,13 @@
 <!-- <app-search></app-search> -->
 
 <div>
-    <app-search></app-search>
+    <!-- <app-search></app-search> -->
+    <div class="search">
+        <form #form="ngForm" (submit)="onSubmit()">
+            <input type="text" placeholder="Search City...!" name="city" [(ngModel)]="cityName">
+        </form>
+    </div>
+    
     <div class="container">
         <div class="upper-data">
             <img src="https://www.cdc.gov/nceh/features/extremeheat/extremeheat_1024px.jpg?_=92915" *ngIf="weatherData.main.temp > 25">

@@ -12,7 +12,9 @@ export class WeatherComponent {
   weatherData!: WeatherData;
   cityName: string = 'New Delhi';
 
-  constructor(private ws: WeatherService) {}
+  constructor(private ws: WeatherService) {
+    this.getWeatherData(this.cityName);
+  }
 
   private getWeatherData (cityName: string) {
     this.ws.getData(cityName)
@@ -22,5 +24,10 @@ export class WeatherComponent {
         console.log(response);
       }
     })
+  }
+
+  onSubmit() {
+    this.getWeatherData(this.cityName);
+    this.cityName = '';
   }
 }

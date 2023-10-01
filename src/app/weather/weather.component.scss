@@ -103,4 +103,22 @@
     }
 }
 
+.search {
+    margin-bottom: 1em;
+    text-align: center;
+
+    input {
+        background: transparent;
+        outline: none;
+        // border: none;
+        opacity: 0.5;
+        border-radius: 20px;
+        padding: 1em;
+        color: black;
+        font-size: 0.8em;
+        text-align: center;
+        box-shadow: 0 0 33px -10px black;
+    }
+}
+
 
