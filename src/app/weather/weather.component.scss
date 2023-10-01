@@ -1,0 +1,106 @@
+.container {
+    width: 400px;
+    height: 70vh;
+    // background-color: rgb(0, 0, 204);
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 0 0 33px -10px black;
+    // margin-top: 10px;
+    padding: 10px;
+
+    .upper-data {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 50%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+        }
+
+        .weather-data {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            // background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .location {
+                color: black;
+                text-align: center;
+                font-size: 2em;
+                font-weight: 400;
+            }
+
+            .temp {
+                color: black;
+                font-size: 4em;
+                text-align: center;
+                font-weight: 900;
+            }
+        }
+    }
+
+    .lower-data {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 50%;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+
+        .more-info-container {
+            flex: 1;
+            background-color: transparent;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-top: 1em;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .info-block {
+                width: 50%;
+                display: flex;
+                flex-direction: row;
+
+                .info-block-label {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        color: black;
+                        font-size: 1em;
+                    }
+                }
+
+                .info-block-value {
+                    width: 50%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+
