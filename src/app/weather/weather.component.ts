@@ -11,6 +11,7 @@ export class WeatherComponent {
 
   weatherData!: WeatherData;
   cityName: string = 'New Delhi';
+  errorMessage: string | null = null;
 
   constructor(private ws: WeatherService) {
     this.getWeatherData(this.cityName);
@@ -21,7 +22,13 @@ export class WeatherComponent {
     .subscribe({
       next: (response) => {
         this.weatherData = response;
+        this.errorMessage = null;
         console.log(response);
+      },
+      error: (error) => {
+        // this.weatherData = null;
+        this.errorMessage = "City Not Found !";
+        console.error(error);
       }
     })
   }

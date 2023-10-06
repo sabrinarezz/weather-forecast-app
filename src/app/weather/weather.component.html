@@ -1,25 +1,27 @@
-<!-- <app-search></app-search> -->
-
 <div>
-    <!-- <app-search></app-search> -->
     <div class="search">
         <form #form="ngForm" (submit)="onSubmit()">
             <input type="text" placeholder="Search City...!" name="city" [(ngModel)]="cityName">
         </form>
     </div>
-    
+    <div *ngIf="errorMessage" class="error-popup">
+        {{errorMessage}}
+    </div>
     <div class="container">
         <div class="upper-data">
-            <img src="https://www.cdc.gov/nceh/features/extremeheat/extremeheat_1024px.jpg?_=92915" *ngIf="weatherData.main.temp > 25">
-            <img src="https://www.worldatlas.com/r/w1200/upload/7e/27/66/flowers-meadow-wood-spring-sun-tree-forest-276014.jpg" *ngIf="weatherData.main.temp <=25 && weatherData.main.temp > 10">
-            <img src="https://www.findingtheuniverse.com/wp-content/uploads/2017/01/Blue2Bhour2BFinland_by_Laurence2BNorah.jpg" *ngIf="weatherData.main.temp <= 10">
+            <img src="https://www.cdc.gov/nceh/features/extremeheat/extremeheat_1024px.jpg?_=92915" *ngIf="weatherData && weatherData.main.temp > 25">
+            <img src="https://www.worldatlas.com/r/w1200/upload/7e/27/66/flowers-meadow-wood-spring-sun-tree-forest-276014.jpg" *ngIf="weatherData && weatherData.main.temp <=25 && weatherData.main.temp > 10">
+            <img src="https://www.findingtheuniverse.com/wp-content/uploads/2017/01/Blue2Bhour2BFinland_by_Laurence2BNorah.jpg" *ngIf="weatherData && weatherData.main.temp <= 10">
 
             <div class="weather-data">
-                <div class="location"> {{ weatherData.name }} </div>
-                <div class="temp"> {{ weatherData.main.temp | number: "1.0-0" }}&deg;C</div>
+                <div class="location"> {{ weatherData && weatherData.name }} </div>
+                <div class="temp"> {{ weatherData && weatherData.main.feels_like | number: "1.0-0" }}&deg;C</div>
             </div>
         </div>
         <div class="lower-data">
+            <!-- <div class="more-info">
+                {{weatherData.weather.}}
+            </div> -->
             <div class="more-info-container">
                 <div class="info-block">
                     <div class="info-block-label">
@@ -30,7 +32,7 @@
                         <span>Min</span>
                     </div>
                     <div class="info-block-value">
-                        {{weatherData.main.temp_min| number: "1.0-0"}}&deg;C
+                        {{ weatherData && weatherData.main.temp_min| number: "1.0-0"}}&deg;C
                     </div>
                 </div>
                 <div class="info-block">
@@ -42,7 +44,7 @@
                         <span>Max</span>
                     </div>
                     <div class="info-block-value">
-                        {{weatherData.main.temp_max| number: "1.0-0"}}&deg;C
+                        {{ weatherData && weatherData.main.temp_max| number: "1.0-0"}}&deg;C
                     </div>
                 </div>
                 <div class="info-block">
@@ -53,7 +55,7 @@
                         <span>Humidity</span>
                     </div>
                     <div class="info-block-value">
-                        {{weatherData.main.humidity}}%
+                        {{ weatherData && weatherData.main.humidity}}%
                     </div>
                 </div>
                 <div class="info-block">
@@ -64,7 +66,7 @@
                         <span>Wind</span>
                     </div>
                     <div class="info-block-value">
-                        {{weatherData.wind.speed}}km/h
+                        {{ weatherData && weatherData.wind.speed}}km/h
                     </div>
                 </div>
             </div>
